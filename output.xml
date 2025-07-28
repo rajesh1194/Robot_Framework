@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.2 on win32)" generated="2025-07-21T10:22:17.785618" rpa="false" schemaversion="5">
+<suite id="s1" name="login FestoGPT" source="c:\Appl\MyProject\Project\Project_1\robot-tests\Virtual assistant\tests\login\login_FestoGPT.robot">
+<test id="s1-t1" name="Open Browser" line="11">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-21T10:22:18.416565" level="INFO">${options} = &lt;selenium.webdriver.edge.options.Options object at 0x0000000006246CF0&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].EdgeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-21T10:22:18.415228" elapsed="0.005479"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--inprivate</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-07-21T10:22:18.421429" elapsed="0.000366"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-07-21T10:22:18.423180" level="INFO">Creating an instance of the Edge WebDriver.</msg>
+<msg time="2025-07-21T10:22:18.809059" level="WARN">There was an error managing msedgedriver (error sending request for url (https://msedgedriver.azureedge.net/LATEST_RELEASE_138_WINDOWS)); using driver found in the cache</msg>
+<arg>Edge</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-07-21T10:22:18.422561" elapsed="1.619081"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-21T10:22:20.045235" level="INFO">Opening url 'https://virtualassistant-staging.d35l8nn6frge72.amplifyapp.com'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-21T10:22:20.044639" elapsed="1.327393"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-21T10:22:21.372827" elapsed="0.040244"/>
+</kw>
+<status status="PASS" start="2025-07-21T10:22:18.413110" elapsed="3.000983"/>
+</test>
+<test id="s1-t2" name="Accept Cookies If Present With Wait" line="18">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(@id,'notice-agree-button')]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-21T10:22:21.417045" elapsed="3.063559"/>
+</kw>
+<msg time="2025-07-21T10:22:24.480975" level="INFO">${is_present} = True</msg>
+<var>${is_present}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//button[contains(@id,'notice-agree-button')]</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-21T10:22:21.416432" elapsed="3.064701"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_present}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-07-21T10:22:24.482585" level="INFO">Clicking element 'xpath=//button[contains(@id,'notice-agree-button')]'.</msg>
+<arg>xpath=//button[contains(@id,'notice-agree-button')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-21T10:22:24.482115" elapsed="0.089103"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-21T10:22:24.571840" level="INFO">Clicked on 'Accept All' cookies button</msg>
+<arg>Clicked on 'Accept All' cookies button</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-21T10:22:24.571579" elapsed="0.000431"/>
+</kw>
+<status status="PASS" start="2025-07-21T10:22:24.481716" elapsed="0.090394"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<arg>'Accept All' button not present, continuing</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-07-21T10:22:24.572418" elapsed="0.000089"/>
+</kw>
+<status status="NOT RUN" start="2025-07-21T10:22:24.572234" elapsed="0.000384"/>
+</branch>
+<status status="PASS" start="2025-07-21T10:22:24.481639" elapsed="0.091074"/>
+</if>
+<status status="PASS" start="2025-07-21T10:22:21.415476" elapsed="3.157635"/>
+</test>
+<test id="s1-t3" name="Click on Login with Festo Single Sign-on" line="28">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//div[text()='Login with Festo Single Sign-on']</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-21T10:22:24.574743" elapsed="0.105500"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-07-21T10:22:24.682441" level="INFO">Clicking element 'xpath=//div[text()='Login with Festo Single Sign-on']'.</msg>
+<arg>xpath=//div[text()='Login with Festo Single Sign-on']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-21T10:22:24.681954" elapsed="0.077475"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//div/input[@type='email']</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-21T10:22:24.763255" elapsed="2.877354"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-21T10:22:27.643264" level="INFO">Typing text 'de2frsr1@festo.net' into text field 'xpath=//div/input[@type='email']'.</msg>
+<arg>xpath=//div/input[@type='email']</arg>
+<arg>${EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-21T10:22:27.642000" elapsed="0.230521"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-07-21T10:22:27.873738" level="INFO">Clicking element 'xpath=//div/input[@type='submit']'.</msg>
+<arg>xpath=//div/input[@type='submit']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-21T10:22:27.873305" elapsed="0.103437"/>
+</kw>
+<status status="PASS" start="2025-07-21T10:22:24.574123" elapsed="3.403995"/>
+</test>
+<status status="PASS" start="2025-07-21T10:22:17.794494" elapsed="10.184922"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="login FestoGPT" id="s1" pass="3" fail="0" skip="0">login FestoGPT</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-07-21T10:22:18.809059" level="WARN">There was an error managing msedgedriver (error sending request for url (https://msedgedriver.azureedge.net/LATEST_RELEASE_138_WINDOWS)); using driver found in the cache</msg>
+</errors>
+</robot>
