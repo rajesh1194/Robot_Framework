@@ -12,9 +12,9 @@ ${QUESTION}          PDF link Round Cylinder CRDSNU
 
 *** Test Cases ***
 Login_FestoVirtualAssistant
-    #${options}=    Evaluate    sys.modules['selenium.webdriver'].EdgeOptions()    sys, selenium.webdriver
+    #${options}=    Evaluate      sys.modules['selenium.webdriver'].EdgeOptions()    sys, selenium.webdriver
     #Call Method    ${options}    add_argument    --inprivate
-    #Create Webdriver    Edge    options=${options}
+    #Create Webdriver    Edge     options=${options}
     #Go To    ${URL}
     Open Browser      ${URL}  ${BROWSER} 
     Maximize Browser Window
@@ -29,10 +29,7 @@ Login_FestoVirtualAssistant
     END
 
     Wait Until Page Contains Element    xpath=//div[text()='Login with Festo Single Sign-on']    timeout=10
-    #Click Element    xpath=//div[text()='Login with Festo Single Sign-on']
-    #Wait Until Page Contains Element    xpath=//div/input[@type='email']  timeout=30
-    #Input Text    xpath=//div/input[@type='email']    ${EMAIL}
-    #Click Element    xpath=//div/input[@type='submit']
+
 
     Click Element      xpath=//div[text()='Login with Festo Single Sign-on']
     Sleep   50ms

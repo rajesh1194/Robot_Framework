@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.2 on win32)" generated="2025-07-29T09:17:07.980510" rpa="false" schemaversion="5">
+<suite id="s1" name="TC Find Product PDF Details Festo Virtual Assistant" source="C:\Appl\MyProject\Project\Project_1\robot-tests\Virtual assistant\tests\TC_Find Product PDF Details Festo Virtual Assistant.robot">
+<test id="s1-t1" name="Login_FestoVirtualAssistant" line="14">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-29T09:17:08.523333" level="INFO">Opening browser 'Edge' to base url 'https://virtualassistant-staging.d35l8nn6frge72.amplifyapp.com'.</msg>
+<msg time="2025-07-29T09:17:09.165301" level="WARN">There was an error managing msedgedriver (error sending request for url (https://msedgedriver.azureedge.net/LATEST_RELEASE_138_WINDOWS)); using driver found in the cache</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-29T09:17:08.522511" elapsed="4.783582"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-29T09:17:13.307117" elapsed="0.037898"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(@id,'notice-agree-button')]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-29T09:17:13.346100" elapsed="2.758011"/>
+</kw>
+<msg time="2025-07-29T09:17:16.104297" level="INFO">${is_present} = True</msg>
+<var>${is_present}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//button[contains(@id,'notice-agree-button')]</arg>
+<arg>10s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-29T09:17:13.345684" elapsed="2.758644"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_present}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-07-29T09:17:16.105920" level="INFO">Clicking element 'xpath=//button[contains(@id,'notice-agree-button')]'.</msg>
+<arg>xpath=//button[contains(@id,'notice-agree-button')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-29T09:17:16.105430" elapsed="0.129837"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-29T09:17:16.236286" level="INFO">Clicked on 'Accept All' cookies button</msg>
+<arg>Clicked on 'Accept All' cookies button</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-29T09:17:16.235825" elapsed="0.000617"/>
+</kw>
+<status status="PASS" start="2025-07-29T09:17:16.104912" elapsed="0.131708"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<arg>'Accept All' button not present, continuing</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-07-29T09:17:16.237163" elapsed="0.000096"/>
+</kw>
+<status status="NOT RUN" start="2025-07-29T09:17:16.236804" elapsed="0.000620"/>
+</branch>
+<status status="PASS" start="2025-07-29T09:17:16.104801" elapsed="0.132756"/>
+</if>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//div[text()='Login with Festo Single Sign-on']</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-29T09:17:16.238090" elapsed="0.051159"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-07-29T09:17:16.290845" level="INFO">Clicking element 'xpath=//div[text()='Login with Festo Single Sign-on']'.</msg>
+<arg>xpath=//div[text()='Login with Festo Single Sign-on']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-29T09:17:16.290050" elapsed="0.116198"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-29T09:17:16.457827" level="INFO">Slept 50 milliseconds.</msg>
+<arg>50ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-29T09:17:16.406936" elapsed="0.051906"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//div/p[text()="Hi, I am the Virtual Assistant of Festo"]</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-29T09:17:16.460845" elapsed="10.795802"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-29T09:17:28.258559" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-29T09:17:27.257569" elapsed="1.001244"/>
+</kw>
+<status status="PASS" start="2025-07-29T09:17:08.520900" elapsed="19.739337"/>
+</test>
+<test id="s1-t2" name="Search_ProductLink_FestoVirtualAssistant" line="39">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-29T09:17:28.263813" level="INFO">Typing text 'PDF link Round Cylinder CRDSNU' into text field 'xpath=//div/textarea[contains(@placeholder,'ask your question')]'.</msg>
+<arg>xpath=//div/textarea[contains(@placeholder,'ask your question')]</arg>
+<arg>${QUESTION}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-29T09:17:28.263008" elapsed="0.215577"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-29T09:17:30.479758" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-29T09:17:28.479182" elapsed="2.000811"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-07-29T09:17:30.480944" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-29T09:17:30.480586" elapsed="0.117046"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-29T09:17:33.599247" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-29T09:17:30.598472" elapsed="3.001093"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>(//div[@class='feedback undefined'])[last()]</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-29T09:17:33.600587" elapsed="18.772015"/>
+</kw>
+<status status="PASS" start="2025-07-29T09:17:28.261775" elapsed="24.111604"/>
+</test>
+<test id="s1-t3" name="OpenProductLink_Navigation_FestoVirtualAssistant" line="48">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-07-29T09:17:52.376671" level="INFO">Clicking element 'xpath=(//a)[last()]'.</msg>
+<arg>xpath=(//a)[last()]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-29T09:17:52.376211" elapsed="0.186210"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-29T09:17:57.564063" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-29T09:17:52.562993" elapsed="5.001567"/>
+</kw>
+<status status="PASS" start="2025-07-29T09:17:52.375253" elapsed="5.190130"/>
+</test>
+<test id="s1-t4" name="Logout_FestoVirtualAssistant" line="53">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-07-29T09:17:57.568720" level="INFO">Clicking element 'xpath=//button/i[contains(@class,'people-user')]'.</msg>
+<arg>xpath=//button/i[contains(@class,'people-user')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-29T09:17:57.568290" elapsed="0.160054"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-07-29T09:17:57.729410" level="INFO">Clicking element 'xpath=//button[text()='Logout']'.</msg>
+<arg>xpath=//button[text()='Logout']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-29T09:17:57.728896" elapsed="0.206259"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-29T09:18:02.937181" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-29T09:17:57.936018" elapsed="5.001398"/>
+</kw>
+<status status="PASS" start="2025-07-29T09:17:57.567371" elapsed="5.370881"/>
+</test>
+<status status="PASS" start="2025-07-29T09:17:07.982261" elapsed="54.958484"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="TC Find Product PDF Details Festo Virtual Assistant" id="s1" pass="4" fail="0" skip="0">TC Find Product PDF Details Festo Virtual Assistant</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-07-29T09:17:09.165301" level="WARN">There was an error managing msedgedriver (error sending request for url (https://msedgedriver.azureedge.net/LATEST_RELEASE_138_WINDOWS)); using driver found in the cache</msg>
+</errors>
+</robot>
